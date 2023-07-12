@@ -107,6 +107,7 @@ module.exports = configure(function (/* ctx */) {
 
       // Quasar plugins
       plugins: [
+        'Loading',
         'Notify',
         'QLayout',
         'QDrawer',
@@ -118,8 +119,8 @@ module.exports = configure(function (/* ctx */) {
         'QIcon',
         'QList',
         'QItem',
-        'QItemSection'
-
+        'QItemSection',
+        'Dialog'
       ]
     },
 

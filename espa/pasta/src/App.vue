@@ -21,8 +21,6 @@
       <q-drawer v-if="showHDrawer" v-model="leftDrawerOpen" side="left" bordered>
         <!--show-if-above-->
         <div>
-          <router-link to="/">집으로</router-link>
-          <p >이동함ㅍ</p>
           <router-link to="/">Go to Page 1</router-link>
           <p>This is some text.</p>
 

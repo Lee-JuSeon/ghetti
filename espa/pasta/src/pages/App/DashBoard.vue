@@ -58,7 +58,6 @@ export default defineComponent({
   name:'DashBoard',
   data(){
     return{
-      showHDrawer: true,
       currentTime: '',
       goodtime: '',
     }

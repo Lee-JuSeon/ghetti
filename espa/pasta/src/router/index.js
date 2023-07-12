@@ -31,17 +31,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Indexpage from "pages/IndexPage.vue";
 import DashBoard from "pages/App/DashBoard.vue";
+import MainDesk from "pages/App/MainDesk.vue";
 
-const routes = [
+const routes = ([
   {
     path: '/',
     component: Indexpage
   },
   {
     path: '/page1',
-    component:DashBoard
+    component: DashBoard,
+    children: [
+      {
+        path: '/page2',
+        component: MainDesk
+      },
+      // {
+      //   path: '/page3',
+      //   component: Posts
+      // }
+    ]
   }
-]
+])
 
 const router = createRouter({
   history: createWebHistory(),
