@@ -1,6 +1,6 @@
 <template>
   <div class="drag-container" draggable="true">
-  <router-link to="/page2" class="main-clock">
+  <router-link to="/login" class="main-clock">
     <h3>현재 시간은 {{ currentTime }} 입니다.</h3>
     <h1>반갑습니다, {사용자}님</h1>
     <h1>좋은 {{goodtime}} 입니다.</h1>
@@ -35,7 +35,7 @@
   transform: scale(1.1);
 }
 body {
-  background-image: url("src/assets/back.jpg");
+  background-image: url("assets/back.jpg");
   background-size: cover;
 
 }
@@ -63,9 +63,11 @@ export default defineComponent({
     }
   },
   mounted() {
+    //updateTime Timeout,Interval
     this.updateTime();
     setInterval(this.updateTime, 1000);
     this.TimeOfDay();
+    setInterval(this.TimeOfDay, 1000);
   },
   methods: {
     updateTime() {

@@ -20,7 +20,7 @@
       </template>
     </q-input>
       <span class="log-qcon">
-        <router-link to="/page1" class="route">
+        <router-link to="/Proj" class="route">
           <q-icon
           name = "send"
           size="2em"/></router-link>
@@ -36,6 +36,8 @@
 <script>
 import {defineComponent, ref} from 'vue'
 import {useQuasar} from "quasar";
+
+
 
 export default defineComponent({
   name: 'IndexPage',
@@ -54,7 +56,7 @@ export default defineComponent({
         $q.dialog({
           title: 'Test<em>!</em>',
           message: '<em>I can</em> <span class="text-red">use</span> <strong>HTML</strong>',
-          html: true,
+          html: false,
           persistent: true //trans modal
         }).onOk(() => {
           // console.log('OK')
@@ -69,7 +71,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style scoped>
 .route{
   color: black;
   text-decoration: none;

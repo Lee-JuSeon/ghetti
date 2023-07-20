@@ -36,14 +36,14 @@ module.exports = configure(function (/* ctx */) {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: [
-      'app.scss'
+      'app.scss',
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
       // 'ionicons-v4',
       // 'mdi-v5',
-      // 'fontawesome-v6',
+      'fontawesome-v6',
       // 'eva-icons',
       // 'themify',
       // 'line-awesome',
@@ -59,7 +59,10 @@ module.exports = configure(function (/* ctx */) {
         browser: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
         node: 'node16'
       },
-
+      transpile: true,
+      transpileDependencies: [
+        /quasar-ui-qcalendar[\\/]src/
+      ],
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       // vueRouterBase,
       // vueDevtools,
@@ -86,9 +89,21 @@ module.exports = configure(function (/* ctx */) {
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer
+
+   // 스프링 Spring connect Point
+   //  devServer: {
+   //    // https: true
+   //    open: true // opens browser window automatically
+   //  },
     devServer: {
-      // https: true
-      open: true // opens browser window automatically
+      // 프록시 설정 추가
+      proxy: {
+        '/api': {
+          // '/api' 로 들어오면 포트 8081(스프링 서버)로 보낸다
+          target: 'http://localhost:8081',
+          changeOrigin: true // cross origin 허용
+        }
+      }
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework
@@ -120,7 +135,7 @@ module.exports = configure(function (/* ctx */) {
         'QList',
         'QItem',
         'QItemSection',
-        'Dialog'
+        'Dialog',
       ]
     },
 
@@ -210,7 +225,6 @@ module.exports = configure(function (/* ctx */) {
 
       builder: {
         // https://www.electron.build/configuration/configuration
-
         appId: 'pasta'
       }
     },
